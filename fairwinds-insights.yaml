@@ -1,0 +1,9 @@
+options:
+  organization: centaurus
+  setExitCode: false
+
+manifests:
+  yaml:
+    - ./busybox.yaml
+    - ./nginx.yaml
+
