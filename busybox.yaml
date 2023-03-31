@@ -15,15 +15,23 @@ spec:
         app: busybox
     spec:
       containers:
-      - name: busybox
-        image: busybox:latest
-        ports:
-        - containerPort: 80
-        securityContext:
-          allowPrivilegeEscalation: true
-          privileged: true
-          readOnlyRootFilesystem: true
-          runAsNonRoot: false
-          capabilities:
-            add:
-              - ALL
+        - name: busybox
+          image: busybox:latest
+          ports:
+            - containerPort: 80
+          securityContext:
+            allowPrivilegeEscalation: true
+            privileged: true
+            readOnlyRootFilesystem: true
+            runAsNonRoot: false
+            capabilities:
+              add:
+                - ALL
+          livenessProbe:
+            # TODO: Change the livenessProbe setting to reflect your application's health
+            exec:
+              command:
+                - cat
+                - /tmp/healthy
+            initialDelaySeconds: 5
+            periodSeconds: 5
