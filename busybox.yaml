@@ -15,15 +15,13 @@ spec:
         app: busybox
     spec:
       containers:
-      - name: busybox
-        image: busybox:latest
-        ports:
-        - containerPort: 80
-        securityContext:
-          allowPrivilegeEscalation: true
-          privileged: true
-          readOnlyRootFilesystem: true
-          runAsNonRoot: false
-          capabilities:
-            add:
-              - ALL
+        - name: busybox
+          image: busybox:latest
+          ports:
+            - containerPort: 80
+          securityContext:
+            allowPrivilegeEscalation: true
+            privileged: true
+            readOnlyRootFilesystem: true
+            runAsNonRoot: false
+            capabilities: {}
